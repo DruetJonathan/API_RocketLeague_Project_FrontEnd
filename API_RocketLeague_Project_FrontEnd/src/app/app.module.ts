@@ -7,20 +7,25 @@ import {SharedModule} from "./shared/shared.module";
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AddPlayerComponent } from './components/player/add-player/add-player.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotFoundComponent,
-    HomeComponent,
-    HeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NotFoundComponent,
+        HomeComponent,
+        HeaderComponent,
+        AddPlayerComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule
+    ],
+    providers: [],
+    exports: [
+        HeaderComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
