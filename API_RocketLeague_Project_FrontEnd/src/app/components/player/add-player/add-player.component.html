@@ -2,5 +2,85 @@
 <body>
   <section>
 
+    <form [formGroup]="playerForm" (ngSubmit)="addPlayer()">
+      <div>
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" id="pseudo" formControlName="pseudo" placeholder="Pseudo">
+        <div *ngIf="playerForm.get('pseudo')?.invalid && playerForm.get('pseudo')?.touched">
+          <div *ngIf="playerForm.get('pseudo')?.errors?.['required']">Le pseudo est requis.</div>
+        </div>
+      </div>
+
+      <div>
+        <label>Ranks:</label>
+        <select>
+          <option *ngFor="let rank of ranks" [value]="rank">{{ rank }}</option>
+        </select>
+        <div *ngIf="playerForm.get('ranks')?.invalid && playerForm.get('ranks')?.touched">
+          <div *ngIf="playerForm.get('ranks')?.errors?.['required']">Les rangs sont requis.</div>
+        </div>
+      </div>
+
+      <div>
+        <label>Plateforms:</label>
+        <select>
+          <option *ngFor="let plateform of plateforms" [value]="plateform">{{ plateform }}</option>
+        </select>
+        <div *ngIf="playerForm.get('plateform')?.invalid && playerForm.get('plateform')?.touched">
+          <div *ngIf="playerForm.get('plateform')?.errors?.['required']">La plateforme est requise.</div>
+          <!--        <div *ngIf="playerForm.get('plateform')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>-->
+        </div>
+      </div>
+<!--      todo: faire l'upload de l'image-->
+      <div>
+        <label for="wins">Wins:</label>
+        <input type="number" formControlName="wins" id="wins" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('wins')?.invalid && playerForm.get('wins')?.touched">
+          <div *ngIf="playerForm.get('wins')?.errors?.['required']">Le nombre de wins est requise.</div>
+          <div *ngIf="playerForm.get('wins')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <div>
+        <label for="goals">Goals:</label>
+        <input type="number" formControlName="goals" id="goals" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('goals')?.invalid && playerForm.get('goals')?.touched">
+          <div *ngIf="playerForm.get('goals')?.errors?.['required']">Le nombre de goals est requise.</div>
+          <div *ngIf="playerForm.get('goals')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <div>
+        <label for="assists">Assists:</label>
+        <input type="number" formControlName="assists" id="assists" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('assists')?.invalid && playerForm.get('assists')?.touched">
+          <div *ngIf="playerForm.get('assists')?.errors?.['required']">Le nombre d'assists est requise.</div>
+          <div *ngIf="playerForm.get('assists')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <div>
+        <label for="mvps">Mvps:</label>
+        <input type="number" formControlName="mvps" id="mvps" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('mvps')?.invalid && playerForm.get('mvps')?.touched">
+          <div *ngIf="playerForm.get('mvps')?.errors?.['required']">Le nombre de mvps est requise.</div>
+          <div *ngIf="playerForm.get('mvps')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <div>
+        <label for="shots">Shots:</label>
+        <input type="number" formControlName="shots" id="shots" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('shots')?.invalid && playerForm.get('shots')?.touched">
+          <div *ngIf="playerForm.get('shots')?.errors?.['required']">Le nombre de shots est requise.</div>
+          <div *ngIf="playerForm.get('shots')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <div>
+        <label for="saves">Saves:</label>
+        <input type="number" formControlName="saves" id="saves" min="0" placeholder="0">
+        <div *ngIf="playerForm.get('saves')?.invalid && playerForm.get('saves')?.touched">
+          <div *ngIf="playerForm.get('saves')?.errors?.['required']">Le nombre de saves est requise.</div>
+          <div *ngIf="playerForm.get('saves')?.errors?.['min']">La valeur doit être supérieure ou égale à 0.</div>
+        </div>
+      </div>
+      <button>Add player</button>
+    </form>
   </section>
 </body>

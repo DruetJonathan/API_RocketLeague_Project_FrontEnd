@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab710444-dc72-4645-9f65-9c424b5ef3a8" name="Changes" comment="">
+    <list default="true" id="ab710444-dc72-4645-9f65-9c424b5ef3a8" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API_RocketLeague_Project_FrontEnd/src/app/shared/shared.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +20,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jonat/Desktop/Github/API_RocketLeague_Project_FrontEnd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\jonat\\Desktop\\Github\\API_RocketLeague_Project_FrontEnd\\API_RocketLeague_Project_FrontEnd\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jonat/Desktop/Github/API_RocketLeague_Project_FrontEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jonat\\Desktop\\Github\\API_RocketLeague_Project_FrontEnd\\API_RocketLeague_Project_FrontEnd\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jonat\Desktop\Github\API_RocketLeague_Project_FrontEnd\API_RocketLeague_Project_FrontEnd\src\app\components" />
@@ -54,11 +50,24 @@
       <updated>1691784045449</updated>
       <workItem from="1691784046602" duration="37000" />
       <workItem from="1691851499880" duration="333000" />
-      <workItem from="1691920740480" duration="490000" />
+      <workItem from="1691920740480" duration="517000" />
+      <workItem from="1692103982908" duration="9000" />
     </task>
+    <task id="LOCAL-00001" summary=".">
+      <created>1691921252324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691921252324</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

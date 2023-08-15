@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddPlayerComponent } from './components/player/add-player/add-player.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -17,11 +18,12 @@ import { AddPlayerComponent } from './components/player/add-player/add-player.co
         HeaderComponent,
         AddPlayerComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        SharedModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    ReactiveFormsModule
+  ],
     providers: [],
     exports: [
         HeaderComponent
