@@ -10,11 +10,11 @@ export interface Player {
   pseudo:string,
   ranks: Rank[]
   plateform:Plateforms,
-  image:string,
-  wins: number;
-  goals: number;
-  assists: number;
-  mvps: number;
-  shots: number;
-  saves: number;
+  image?:string,
+  wins: number,
+  goals: number,
+  assists: number,
+  mvps: number,
+  shots: number,
+  saves: number,
 }

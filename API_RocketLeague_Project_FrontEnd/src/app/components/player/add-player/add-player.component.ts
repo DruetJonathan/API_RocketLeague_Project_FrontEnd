@@ -4,6 +4,9 @@ import {Ranks} from "../../../models/Ranks";
 import {Plateforms} from "../../../models/Plateforms";
 import {Divisions} from "../../../models/Divisions";
 import {Rank} from "../../../models/Rank";
+import {Router} from "@angular/router";
+import {PlayerService} from "../../../services/player.service";
+import {Player} from "../../../models/Player";
 
 @Component({
   selector: 'app-add-player',
@@ -16,31 +19,29 @@ export class AddPlayerComponent {
   divisions: string[] = Object.keys(Divisions).filter(key => isNaN(Number(key)));
   plateforms: string[] = Object.keys(Plateforms).filter(key => isNaN(Number(key)));
   ranks: Rank[] = []; // Tableau pour stocker les informations des rangs et divisions combinées
-  constructor(private _fb : FormBuilder) {
+  constructor(private _fb : FormBuilder,private _router : Router,private _playerService:PlayerService) {
     this.playerForm = this._fb.group({
+      id:null,
       pseudo:[null,[Validators.required]],
       ranks:this._fb.array([
         this._fb.group({
-          id:0,
           name:"1s",
           rank: ['UNRANKED', Validators.required],
           division: ['UNRANKED', Validators.required]
         }),
         this._fb.group({
-          id:0,
           name:"2s",
           rank: ['UNRANKED', Validators.required],
           division: ['UNRANKED', Validators.required]
         }),
         this._fb.group({
-          id:0,
-          name:"3s",
+           name:"3s",
           rank: ['UNRANKED', Validators.required],
           division: ['UNRANKED', Validators.required]
         })
       ]),
       plateform:["PC",[Validators.required]],
-      image:["",[Validators.required,Validators.min(0)]],
+      image:[""],
       wins:[0,[Validators.required,Validators.min(0)]],
       goals:[0,[Validators.required,Validators.min(0)]],
       assists:[0,[Validators.required,Validators.min(0)]],
@@ -52,6 +53,19 @@ export class AddPlayerComponent {
 
   addPlayer(){
     console.log(this.playerForm.value)
+    if (this.playerForm.valid){
+      console.log(this.playerForm.value)
+      this._playerService.addPlayer(this.playerForm.value).subscribe(
+      //   (player : Player)=>{
+      //     console.log(player)
+      // }
+      )
+      this.playerForm.reset();
+    }else{
+      console.log("error")
+      console.log(this.playerForm)
+      this.playerForm.markAllAsTouched()
+    }
   }
 
   protected readonly Ranks = Ranks;
