@@ -1,7 +1,8 @@
 <app-header></app-header>
 <body>
-  <section>
+<h1>Add player</h1>
 
+  <section>
     <form [formGroup]="playerForm" (ngSubmit)="addPlayer()">
       <div>
         <label for="pseudo">Pseudo:</label>
@@ -37,6 +38,15 @@
         </select>
         <div *ngIf="playerForm.get('plateform')?.invalid && playerForm.get('plateform')?.touched">
           <div *ngIf="playerForm.get('plateform')?.errors?.['required']"  class="error">La plateforme est requise.</div>
+        </div>
+      </div>
+      <div>
+        <label>Team:</label>
+        <select formControlName="team">
+          <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team }}</option>
+        </select>
+        <div *ngIf="playerForm.get('team')?.invalid && playerForm.get('team')?.touched">
+          <div *ngIf="playerForm.get('team')?.errors?.['required']"  class="error">La team est requise.</div>
         </div>
       </div>
 <!--      todo: faire l'upload de l'image-->

@@ -2,6 +2,7 @@ import {Ranks} from "./Ranks";
 import {Divisions} from "./Divisions";
 import {Rank} from "./Rank";
 import {Plateforms} from "./Plateforms";
+import {Team} from "./Team";
 
 
 
@@ -17,4 +18,5 @@ export interface Player {
   mvps: number,
   shots: number,
   saves: number,
+  team:Team,
 }

@@ -17,4 +17,5 @@ export class PlayerService {
     return this._client.post<Player>(this.basicUrl+"player/add",player, {headers});
 }
 
+
 }
