@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AddPlayerComponent } from './components/player/add-player/add-player.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { SeeAllPlayersComponent } from './components/player/see-all-players/see-all-players.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
         NotFoundComponent,
         HomeComponent,
         HeaderComponent,
-        AddPlayerComponent
+        AddPlayerComponent,
+        SeeAllPlayersComponent
     ],
   imports: [
     BrowserModule,

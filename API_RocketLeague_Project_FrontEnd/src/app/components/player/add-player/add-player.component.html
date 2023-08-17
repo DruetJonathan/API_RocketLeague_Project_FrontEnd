@@ -1,5 +1,4 @@
 <app-header></app-header>
-<body>
 <h1>Add player</h1>
 
   <section>
@@ -12,8 +11,8 @@
         </div>
       </div>
 
-      <div>
-        <label>Ranks:</label>
+      <label>Ranks:</label>
+      <div id="rankContainer">
         <div formArrayName="ranks">
           <div *ngFor="let rankGroup of playerForm.get('ranks')?.value; let i = index">
             <span>{{rankGroup.name}}</span>
@@ -31,25 +30,28 @@
           <div *ngIf="playerForm.get('ranks')?.errors?.['required']"  class="error">Le rang est requis.</div>
         </div>
       </div>
-      <div>
-        <label>Plateforms:</label>
-        <select formControlName="plateform">
-          <option *ngFor="let plateform of plateforms" [value]="plateform">{{ plateform }}</option>
-        </select>
-        <div *ngIf="playerForm.get('plateform')?.invalid && playerForm.get('plateform')?.touched">
-          <div *ngIf="playerForm.get('plateform')?.errors?.['required']"  class="error">La plateforme est requise.</div>
+      <div id="containerPlateTeam">
+        <div>
+          <label>Plateforms:</label>
+          <select formControlName="plateform">
+            <option *ngFor="let plateform of plateforms" [value]="plateform">{{ plateform }}</option>
+          </select>
+          <div *ngIf="playerForm.get('plateform')?.invalid && playerForm.get('plateform')?.touched">
+            <div *ngIf="playerForm.get('plateform')?.errors?.['required']"  class="error">La plateforme est requise.</div>
+          </div>
         </div>
-      </div>
-      <div>
-        <label>Team:</label>
-        <select formControlName="teamId">
-          <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team.teamName }}</option>
-        </select>
-        <div *ngIf="playerForm.get('teamId')?.invalid && playerForm.get('teamId')?.touched">
-          <div *ngIf="playerForm.get('teamId')?.errors?.['required']"  class="error">La team est requise.</div>
+        <div>
+          <label>Team:</label>
+          <select formControlName="teamId">
+            <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team.teamName }}</option>
+          </select>
+          <div *ngIf="playerForm.get('teamId')?.invalid && playerForm.get('teamId')?.touched">
+            <div *ngIf="playerForm.get('teamId')?.errors?.['required']"  class="error">La team est requise.</div>
+          </div>
         </div>
       </div>
 <!--      todo: faire l'upload de l'image-->
+      <label>Stats:</label>
       <div id="stats">
         <div>
           <label for="wins">Wins:</label>
@@ -108,4 +110,3 @@
       <button>Add player</button>
     </form>
   </section>
-</body>

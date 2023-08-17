@@ -63,7 +63,7 @@ export class AddPlayerComponent implements OnInit{
       //     console.log(player)
       // }
       )
-      this.playerForm.reset();
+      this._router.navigateByUrl("/")
     }else{
       console.log("error")
       console.log(this.playerForm)

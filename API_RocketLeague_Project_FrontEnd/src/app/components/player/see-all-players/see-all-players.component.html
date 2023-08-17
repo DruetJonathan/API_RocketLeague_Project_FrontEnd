@@ -1,0 +1,37 @@
+<app-header></app-header>
+<section>
+  <ng-container *ngIf="listPlayers$ | async as players">
+    <div class="card-container">
+      <ng-container *ngFor="let player of players">
+        <ng-container *ngIf="player.id !== 1">
+          <div class="player-card" >
+              <p class="pseudo">{{player.pseudo}}</p>
+              <!--          <p>Plateform: {{player.plateform}}</p>-->
+              <img class="plateform" [src]="getImagePlateformByName(player.plateform)" alt="{{player.plateform.toString()}}">
+              <div class="rank-container">
+                <div *ngFor="let rank of player.ranks;let i = index">
+                  <p>{{typeRank[i]}}</p>
+                  <img [src]="getImageByNameRank(rank.rank)" alt="{{rank}}">
+                  <p *ngIf="rank.division !== 'UNRANKED'">{{rank.division}}</p>
+                  <p *ngIf="rank.division === 'UNRANKED'">&nbsp;</p>
+                </div>
+              </div>
+              <!--          <div class="stats-container">-->
+              <!--            <p>Wins: {{player.wins}}</p>-->
+              <!--            <p>Goals: {{player.goals}}</p>-->
+              <!--            <p>Assists: {{player.assists}}</p>-->
+              <!--            <p>Mvps: {{player.mvps}}</p>-->
+              <!--            <p>Shots: {{player.shots}}</p>-->
+              <!--            <p>Saves: {{player.saves}}</p>-->
+              <!--          </div>-->
+            <a routerLink="">See details</a>
+          </div>
+        </ng-container>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+</section>
+
+

@@ -1,7 +1,7 @@
 
 export enum Plateforms {
   PC = "PC",
-  PLAYSTATION_4 = "PlayStation 4",
-  XBOX_ONE = "Xbox One",
-  NINTENDO_SWITCH = "Nintendo Switch"
+  PLAYSTATION_4 = "PLAYSTATION_4",
+  XBOX_ONE = "XBOX_ONE",
+  NINTENDO_SWITCH = "NINTENDO_SWITCH"
 }
