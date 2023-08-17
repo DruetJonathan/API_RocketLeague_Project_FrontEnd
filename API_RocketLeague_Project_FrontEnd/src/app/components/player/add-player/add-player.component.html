@@ -42,11 +42,11 @@
       </div>
       <div>
         <label>Team:</label>
-        <select formControlName="team">
-          <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team }}</option>
+        <select formControlName="teamId">
+          <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team.teamName }}</option>
         </select>
-        <div *ngIf="playerForm.get('team')?.invalid && playerForm.get('team')?.touched">
-          <div *ngIf="playerForm.get('team')?.errors?.['required']"  class="error">La team est requise.</div>
+        <div *ngIf="playerForm.get('teamId')?.invalid && playerForm.get('teamId')?.touched">
+          <div *ngIf="playerForm.get('teamId')?.errors?.['required']"  class="error">La team est requise.</div>
         </div>
       </div>
 <!--      todo: faire l'upload de l'image-->

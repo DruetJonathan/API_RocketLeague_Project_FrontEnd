@@ -50,7 +50,7 @@ export class AddPlayerComponent implements OnInit{
       mvps:[0,[Validators.required,Validators.min(0)]],
       shots:[0,[Validators.required,Validators.min(0)]],
       saves:[0,[Validators.required,Validators.min(0)]],
-      team:["No Team",[Validators.required]]
+      teamId:[null,[Validators.required]]
     })
   }
 
@@ -74,7 +74,10 @@ export class AddPlayerComponent implements OnInit{
   getAllTeam(){
     this._teamService.getAllTeams().subscribe(
       (teams)=>{
-        this.listOfTeams = teams
+        this.listOfTeams = teams;
+        this.playerForm.patchValue({
+          teamId: teams.filter(team => team.teamName == 'None')[0].id
+        })
       }
     )
   }

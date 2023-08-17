@@ -18,5 +18,5 @@ export interface Player {
   mvps: number,
   shots: number,
   saves: number,
-  team:Team,
+  teamId:number,
 }
