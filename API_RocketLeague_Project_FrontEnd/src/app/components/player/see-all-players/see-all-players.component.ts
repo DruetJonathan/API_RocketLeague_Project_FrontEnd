@@ -5,6 +5,7 @@ import {Observable, tap} from "rxjs";
 import {Rank} from "../../../models/Rank";
 import {Ranks} from "../../../models/Ranks";
 import {Plateforms} from "../../../models/Plateforms";
+import {TeamService} from "../../../services/team.service";
 
 @Component({
   selector: 'app-see-all-players',
@@ -15,7 +16,7 @@ export class SeeAllPlayersComponent implements OnInit{
 
   listPlayers$! : Observable< Player[]>;
   typeRank: string[] = ["Duel Solo","Doubles","Trio"]
-  constructor(private _playerServ:PlayerService) {
+  constructor(private _playerServ:PlayerService,private _teamServ:TeamService) {
   }
 
   getAllPlayers(){
@@ -31,5 +32,15 @@ export class SeeAllPlayersComponent implements OnInit{
 
   getImagePlateformByName(plateform: Plateforms) {
     return this._playerServ.getImagePlateformByName(plateform);
+  }
+
+  getTeamName(id: number) {
+    let teamName : string = "";
+    // this._teamServ.getById(id).subscribe(
+    //   (team)=>{
+    //     teamName = team.teamName;
+    //   }
+    // );
+    return teamName;
   }
 }

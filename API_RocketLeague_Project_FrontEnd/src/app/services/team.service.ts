@@ -24,4 +24,8 @@ export class TeamService {
   deleteTeam(team:Team):Observable<Boolean>{
     return this._client.delete<Boolean>(this.basicUrl+"team/delete/"+team.id+team.id)
   }
+
+  getById(id: number):Observable<Team>{
+    return this._client.get<Team>(this.basicUrl+"team/"+id)
+  }
 }

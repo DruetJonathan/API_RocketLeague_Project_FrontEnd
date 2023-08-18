@@ -7,13 +7,17 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  items: MenuItem[] = [];
+  menuItems: MenuItem[] = [];
   ngOnInit() {
-    this.items = [
-      { label: 'Add Player', routerLink: '/player/add' },
-      { label: 'See All Players', routerLink: '/player/seeAllPlayers' },
-      { label: 'Login', routerLink: '/' },
-      { label: 'Register', routerLink: '/' }
+    this.menuItems = [
+      {
+        label: 'Player',
+        icon:'pi pi-user',
+        items: [
+          { label: 'Add player', routerLink: '/player/add',icon:'pi pi-plus' },
+          { label: 'See All players', routerLink: '/player/seeAllPlayers',icon:'pi pi-search' }
+        ]
+      }
     ];
   }
 }

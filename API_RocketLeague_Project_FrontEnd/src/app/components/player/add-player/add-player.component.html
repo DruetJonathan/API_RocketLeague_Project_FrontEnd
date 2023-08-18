@@ -5,7 +5,7 @@
     <form [formGroup]="playerForm" (ngSubmit)="addPlayer()">
       <div>
         <label for="pseudo">Pseudo:</label>
-        <input type="text" id="pseudo" formControlName="pseudo" placeholder="Pseudo">
+        <input type="text" id="pseudo" formControlName="pseudo" placeholder="Pseudo" pTooltip="Enter your pseudo">
         <div *ngIf="playerForm.get('pseudo')?.invalid && playerForm.get('pseudo')?.touched">
           <div *ngIf="playerForm.get('pseudo')?.errors?.['required']"  class="error">Le pseudo est requis.</div>
         </div>
@@ -17,10 +17,10 @@
           <div *ngFor="let rankGroup of playerForm.get('ranks')?.value; let i = index">
             <span>{{rankGroup.name}}</span>
             <div [formGroupName]="i">
-              <select formControlName="rank">
+              <select formControlName="rank" pTooltip="Select a rank">
                 <option *ngFor="let rank of ranksEnum" [value]="rank">{{ rank }}</option>
               </select>
-              <select formControlName="division">
+              <select formControlName="division" pTooltip="Select a division">
                 <option *ngFor="let division of divisions" [value]="division">{{ division }}</option>
               </select>
             </div>
@@ -33,7 +33,7 @@
       <div id="containerPlateTeam">
         <div>
           <label>Plateforms:</label>
-          <select formControlName="plateform">
+          <select formControlName="plateform"  pTooltip="Select a plateform">
             <option *ngFor="let plateform of plateforms" [value]="plateform">{{ plateform }}</option>
           </select>
           <div *ngIf="playerForm.get('plateform')?.invalid && playerForm.get('plateform')?.touched">
@@ -42,7 +42,7 @@
         </div>
         <div>
           <label>Team:</label>
-          <select formControlName="teamId">
+          <select formControlName="teamId" pTooltip="Select a team">
             <option *ngFor="let team of listOfTeams" [value]="team.id">{{ team.teamName }}</option>
           </select>
           <div *ngIf="playerForm.get('teamId')?.invalid && playerForm.get('teamId')?.touched">
@@ -109,4 +109,5 @@
       </div>
       <button>Add player</button>
     </form>
+
   </section>
