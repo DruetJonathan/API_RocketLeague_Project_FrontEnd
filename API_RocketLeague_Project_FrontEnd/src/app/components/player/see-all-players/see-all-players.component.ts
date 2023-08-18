@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../../services/player.service";
 import {Player} from "../../../models/Player";
-import {Observable, tap} from "rxjs";
+import {filter, map, Observable, tap} from "rxjs";
 import {Rank} from "../../../models/Rank";
 import {Ranks} from "../../../models/Ranks";
 import {Plateforms} from "../../../models/Plateforms";
 import {TeamService} from "../../../services/team.service";
+import {Team} from "../../../models/Team";
 
 @Component({
   selector: 'app-see-all-players',
@@ -15,6 +16,7 @@ import {TeamService} from "../../../services/team.service";
 export class SeeAllPlayersComponent implements OnInit{
 
   listPlayers$! : Observable< Player[]>;
+  teams!:Team[];
   typeRank: string[] = ["Duel Solo","Doubles","Trio"]
   constructor(private _playerServ:PlayerService,private _teamServ:TeamService) {
   }
@@ -25,6 +27,7 @@ export class SeeAllPlayersComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllPlayers();
+    this.getAllTeams();
   }
   getImageByNameRank(rank : Ranks){
     return this._playerServ.getImageByNameRank(rank);
@@ -33,14 +36,18 @@ export class SeeAllPlayersComponent implements OnInit{
   getImagePlateformByName(plateform: Plateforms) {
     return this._playerServ.getImagePlateformByName(plateform);
   }
-
-  getTeamName(id: number) {
-    let teamName : string = "";
-    // this._teamServ.getById(id).subscribe(
-    //   (team)=>{
-    //     teamName = team.teamName;
-    //   }
-    // );
-    return teamName;
+  getAllTeams(){
+    this._teamServ.getAllTeams().subscribe(teams => {
+      this.teams = teams;
+      console.log(teams)
+    });
+  }
+  getTeamNameById(teamId: number): Observable<string> {
+    return this._teamServ.getById(teamId).pipe(
+      map(team => {
+        console.log(team.teamName)
+        return team ? team.teamName : 'Unknown Team';
+      })
+    );
   }
 }

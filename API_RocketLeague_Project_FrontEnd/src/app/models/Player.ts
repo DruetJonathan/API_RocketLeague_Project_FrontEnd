@@ -4,8 +4,6 @@ import {Rank} from "./Rank";
 import {Plateforms} from "./Plateforms";
 import {Team} from "./Team";
 
-
-
 export interface Player {
   id:number,
   pseudo:string,

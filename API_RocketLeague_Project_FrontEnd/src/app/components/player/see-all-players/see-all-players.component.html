@@ -16,7 +16,8 @@
                   <p *ngIf="rank.division === 'UNRANKED'">&nbsp;</p>
                 </div>
               </div>
-            <p>{{player.teamId}}</p>
+            <p>Team Name: {{ getTeamNameById(player.teamId)}}</p>
+<!--            async au dessus-->
             <a routerLink="">See details</a>
           </div>
         </ng-container>
