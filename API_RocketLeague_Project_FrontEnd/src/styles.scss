@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   margin: 0;
-  background: #656063;
+  background: #bebebe;
 
 }
+/* styles.css */
+@import 'primeng/resources/themes/saga-blue/theme.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';

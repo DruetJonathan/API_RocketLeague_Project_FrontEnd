@@ -8,9 +8,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddPlayerComponent } from './components/player/add-player/add-player.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SeeAllPlayersComponent } from './components/player/see-all-players/see-all-players.component';
+import {ButtonModule} from "primeng/button";
+import {MenubarModule} from "primeng/menubar";
+import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
     declarations: [
@@ -26,7 +29,8 @@ import { SeeAllPlayersComponent } from './components/player/see-all-players/see-
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
     providers: [],
     exports: [

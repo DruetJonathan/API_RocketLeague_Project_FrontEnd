@@ -91,12 +91,12 @@ select {
 
 h1 {
   text-align: center;
-  color: #ffc857;
+  //color: #ffc857;
 }
 
 button {
-  background-color: #323031;
-  color: #ffc857;
+  background-color: #367cd2;
+  color: #fff;
   padding: 15px;
   border: none;
   border-radius: 4px;
@@ -113,7 +113,7 @@ button {
 }
 
 button:hover {
-  background-color: #656063;
+  background-color: #5e92d3;
 }
 
 .error {
@@ -121,3 +121,4 @@ button:hover {
   font-size: 12px;
   margin: 15px 0; /* Margin adjustments for better spacing */
 }
+

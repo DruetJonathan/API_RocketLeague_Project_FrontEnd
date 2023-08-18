@@ -1,16 +1,23 @@
+<!--<header>-->
+<!--  <nav>-->
+<!--    <div id="mainBar">-->
+<!--      <a routerLink="/" id="mainName">RocketLeagueAPI</a>-->
+<!--      <div>-->
+<!--        <a routerLink="/">Login</a>-->
+<!--        <a routerLink="/">Register</a>-->
+<!--        <a routerLink="/player/add">Add Player</a>-->
+<!--        <a routerLink="/player/seeAllPlayers">See All Player</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</header>-->
 <header>
   <nav>
-    <div id="mainBar">
-      <a routerLink="/" id="mainName">RocketLeagueAPI</a>
-      <div>
-        <a routerLink="/">Login</a>
-        <a routerLink="/">Register</a>
-        <a routerLink="/player/add">Add Player</a>
-        <a routerLink="/player/seeAllPlayers">See All Player</a>
-      </div>
-    </div>
-    <!--    <div id="bg">-->
-    <!--      <div id="Slider1"></div>-->
-    <!--    </div>-->
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <img src="/assets/images/logo.png" routerLink="/" id="logo"/>
+      </ng-template>
+    </p-menubar>
   </nav>
 </header>
+
