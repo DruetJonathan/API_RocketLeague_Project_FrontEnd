@@ -14,40 +14,42 @@ import {Team} from "../../../models/Team";
   styleUrls: ['./see-all-players.component.scss']
 })
 export class SeeAllPlayersComponent implements OnInit{
-
-  listPlayers$! : Observable< Player[]>;
-  teams!:Team[];
-  typeRank: string[] = ["Duel Solo","Doubles","Trio"]
-  constructor(private _playerServ:PlayerService,private _teamServ:TeamService) {
-  }
-
-  getAllPlayers(){
-    this.listPlayers$ = this._playerServ.getAllPlayers()
-  }
-
   ngOnInit(): void {
-    this.getAllPlayers();
-    this.getAllTeams();
-  }
-  getImageByNameRank(rank : Ranks){
-    return this._playerServ.getImageByNameRank(rank);
   }
 
-  getImagePlateformByName(plateform: Plateforms) {
-    return this._playerServ.getImagePlateformByName(plateform);
-  }
-  getAllTeams(){
-    this._teamServ.getAllTeams().subscribe(teams => {
-      this.teams = teams;
-      console.log(teams)
-    });
-  }
-  getTeamNameById(teamId: number): Observable<string> {
-    return this._teamServ.getById(teamId).pipe(
-      map(team => {
-        console.log(team.teamName)
-        return team ? team.teamName : 'Unknown Team';
-      })
-    );
-  }
+  // listPlayers$! : Observable< Player[]>;
+  // teams!:Team[];
+  // typeRank: string[] = ["Duel Solo","Doubles","Trio"]
+  // constructor(private _playerServ:PlayerService,private _teamServ:TeamService) {
+  // }
+  //
+  // getAllPlayers(){
+  //   this.listPlayers$ = this._playerServ.getAllPlayers()
+  // }
+  //
+  // ngOnInit(): void {
+  //   this.getAllPlayers();
+  //   this.getAllTeams();
+  // }
+  // getImageByNameRank(rank : Ranks){
+  //   return this._playerServ.getImageByNameRank(rank);
+  // }
+  //
+  // getImagePlateformByName(plateform: Plateforms) {
+  //   return this._playerServ.getImagePlateformByName(plateform);
+  // }
+  // getAllTeams(){
+  //   this._teamServ.getAllTeams().subscribe(teams => {
+  //     this.teams = teams;
+  //     console.log(teams)
+  //   });
+  // }
+  // getTeamNameById(teamId: number): Observable<string> {
+  //   return this._teamServ.getById(teamId).pipe(
+  //     map(team => {
+  //       console.log(team.teamName)
+  //       return team ? team.teamName : 'Unknown Team';
+  //     })
+  //   );
+  // }
 }

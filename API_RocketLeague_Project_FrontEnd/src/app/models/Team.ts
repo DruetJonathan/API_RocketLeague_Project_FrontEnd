@@ -6,3 +6,8 @@ export interface Team {
   players:Player[],
   captain:Player
 }
+
+export interface TeamAddFormDTO {
+  id:number,
+  teamName:String,
+}

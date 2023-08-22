@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Player} from "../models/Player";
+import {Player, PlayerAddForm} from "../models/Player";
 import {Ranks} from "../models/Ranks";
 import {Plateforms} from "../models/Plateforms";
 
@@ -15,10 +15,10 @@ export class PlayerService {
   constructor(private _client: HttpClient) {
   }
 
-  addPlayer(player: Player): Observable<Player> {
+  addPlayer(playerAddForm: PlayerAddForm): Observable<Player> {
     console.log(this.basicUrl + "player/add")
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this._client.post<Player>(this.basicUrl + "player/add", player, {headers});
+    return this._client.post<Player>(this.basicUrl + "player/add", playerAddForm, {headers});
   }
 
   getAllPlayers(): Observable<Player[]> {

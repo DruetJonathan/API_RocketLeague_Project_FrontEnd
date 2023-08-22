@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 import {PlayerService} from "../../../services/player.service";
 import {Player} from "../../../models/Player";
 import {TeamService} from "../../../services/team.service";
-import {Team} from "../../../models/Team";
+import {Team, TeamAddFormDTO} from "../../../models/Team";
 
 @Component({
   selector: 'app-add-player',
@@ -43,13 +43,15 @@ export class AddPlayerComponent implements OnInit{
         })
       ]),
       plateform:["PC",[Validators.required]],
-      image:[""],
-      wins:[0,[Validators.required,Validators.min(0)]],
-      goals:[0,[Validators.required,Validators.min(0)]],
-      assists:[0,[Validators.required,Validators.min(0)]],
-      mvps:[0,[Validators.required,Validators.min(0)]],
-      shots:[0,[Validators.required,Validators.min(0)]],
-      saves:[0,[Validators.required,Validators.min(0)]],
+      stats:this._fb.group({
+        wins:[0,[Validators.required,Validators.min(0)]],
+        goals:[0,[Validators.required,Validators.min(0)]],
+        assists:[0,[Validators.required,Validators.min(0)]],
+        mvps:[0,[Validators.required,Validators.min(0)]],
+        shots:[0,[Validators.required,Validators.min(0)]],
+        saves:[0,[Validators.required,Validators.min(0)]],
+        dateInserted: new Date(),
+      }),
       teamId:[null,[Validators.required]]
     })
   }
@@ -70,13 +72,15 @@ export class AddPlayerComponent implements OnInit{
       this.playerForm.markAllAsTouched()
     }
   }
-  listOfTeams : Team[] = [];
+  listOfTeams : TeamAddFormDTO[] = [];
   getAllTeam(){
     this._teamService.getAllTeams().subscribe(
       (teams)=>{
+        console.log(teams)
         this.listOfTeams = teams;
         this.playerForm.patchValue({
           teamId: teams.filter(team => team.teamName == 'None')[0].id
+
         })
       }
     )

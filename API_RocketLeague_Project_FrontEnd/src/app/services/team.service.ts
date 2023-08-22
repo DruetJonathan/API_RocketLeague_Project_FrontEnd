@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Team} from "../models/Team";
+import {Team, TeamAddFormDTO} from "../models/Team";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -14,8 +14,8 @@ export class TeamService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._client.post<Team>(this.basicUrl+"team/add",team, {headers});
   }
-  getAllTeams():Observable<Team[]>{
-    return this._client.get<Team[]>(this.basicUrl+"teams")
+  getAllTeams():Observable<TeamAddFormDTO[]>{
+    return this._client.get<TeamAddFormDTO[]>(this.basicUrl+"teams")
   }
   modifyTeam(team:Team):Observable<Team>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
