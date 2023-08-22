@@ -21,3 +21,10 @@ export interface PlayerAddForm {
   stats: Stat,
   teamId:number,
 }
+export interface PlayerSeeAll {
+  id:number,
+  pseudo:string,
+  ranks: Rank[]
+  plateform:Plateforms,
+  teamId:number,
+}

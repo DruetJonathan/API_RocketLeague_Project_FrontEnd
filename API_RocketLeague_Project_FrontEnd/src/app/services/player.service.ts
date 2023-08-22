@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Player, PlayerAddForm} from "../models/Player";
+import {Player, PlayerAddForm, PlayerSeeAll} from "../models/Player";
 import {Ranks} from "../models/Ranks";
 import {Plateforms} from "../models/Plateforms";
 
@@ -21,9 +21,9 @@ export class PlayerService {
     return this._client.post<Player>(this.basicUrl + "player/add", playerAddForm, {headers});
   }
 
-  getAllPlayers(): Observable<Player[]> {
+  getAllPlayers(): Observable<PlayerSeeAll[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this._client.get<Player[]>(this.basicUrl + 'players', { headers });
+    return this._client.get<PlayerSeeAll[]>(this.basicUrl + 'players/see', { headers });
   }
 
   getImageByNameRank(rankName:string) {
