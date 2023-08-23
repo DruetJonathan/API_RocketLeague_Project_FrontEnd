@@ -15,6 +15,8 @@ import {ButtonModule} from "primeng/button";
 import {MenubarModule} from "primeng/menubar";
 import {DropdownModule} from "primeng/dropdown";
 import {SpeedDialModule} from "primeng/speeddial";
+import {ToastModule} from "primeng/toast";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 @NgModule({
     declarations: [
@@ -25,15 +27,17 @@ import {SpeedDialModule} from "primeng/speeddial";
         AddPlayerComponent,
         SeeAllPlayersComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        SharedModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        SpeedDialModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SpeedDialModule,
+    ToastModule,
+    ConfirmDialogModule,
 
-    ],
+  ],
     providers: [],
     exports: [
         HeaderComponent

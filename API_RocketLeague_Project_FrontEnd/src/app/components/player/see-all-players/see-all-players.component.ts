@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../../services/player.service";
 import {Player, PlayerSeeAll} from "../../../models/Player";
 import {filter, map, Observable, tap} from "rxjs";
@@ -7,6 +7,7 @@ import {Ranks} from "../../../models/Ranks";
 import {Plateforms} from "../../../models/Plateforms";
 import {TeamService} from "../../../services/team.service";
 import {Team, TeamAddFormDTO} from "../../../models/Team";
+import {ConfirmationService, ConfirmEventType, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-see-all-players',
@@ -18,7 +19,9 @@ export class SeeAllPlayersComponent implements OnInit {
   listPlayers$!: Observable<PlayerSeeAll[]>;
   teams!: TeamAddFormDTO[];
   typeRank: string[] = ["Duel Solo", "Doubles", "Trio"]
-
+  divDeleteVisible = false;
+  divConfirmationMessage = false;
+  isBlurred = false;
 
   constructor(private _playerServ: PlayerService, private _teamServ: TeamService) {
   }
@@ -55,6 +58,25 @@ export class SeeAllPlayersComponent implements OnInit {
     //   }));
     // console.log(tmp)
     // return tmp ? tmp : 'Unknown Team';
-    return this.teams.find(team => teamId===teamId)?.teamName;
+    return this.teams.find(team => teamId === teamId)?.teamName;
+  }
+
+  toogleDeletePopup(id:number) {
+    this.divDeleteVisible = !this.divDeleteVisible;
+    if (id === 1){
+      this.divConfirmationMessage = !this.divConfirmationMessage;
+    }
+  }
+  toggleDeleteConfirmationMessage(){
+    this.divConfirmationMessage = !this.divConfirmationMessage;
+  }
+
+  removeBlur() {
+    this.divDeleteVisible = false;
+    this.divConfirmationMessage = false;
+  }
+
+  toggleBlur() {
+    this.isBlurred = !this.isBlurred;
   }
 }
