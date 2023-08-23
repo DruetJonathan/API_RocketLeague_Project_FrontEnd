@@ -19,6 +19,7 @@ export class SeeAllPlayersComponent implements OnInit {
   teams!: TeamAddFormDTO[];
   typeRank: string[] = ["Duel Solo", "Doubles", "Trio"]
 
+
   constructor(private _playerServ: PlayerService, private _teamServ: TeamService) {
   }
 

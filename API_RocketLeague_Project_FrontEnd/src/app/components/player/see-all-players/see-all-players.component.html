@@ -5,8 +5,6 @@
       <ng-container *ngFor="let player of players">
         <ng-container *ngIf="player.id !== 1">
           <div class="player-card" >
-              <p class="pseudo">{{player.pseudo}}</p>
-              <!--          <p>Plateform: {{player.plateform}}</p>-->
               <img class="plateform" [src]="getImagePlateformByName(player.plateform)" alt="{{player.plateform.toString()}}">
               <div class="rank-container">
                 <div *ngFor="let rank of player.ranks;let i = index">
@@ -19,7 +17,7 @@
             <p>Team Name: {{ getTeamNameById(player.teamId)}}</p>
 <!--            async au dessus-->
             <a routerLink="">See details</a>
-          </div>
+            <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button>          </div>
         </ng-container>
       </ng-container>
 

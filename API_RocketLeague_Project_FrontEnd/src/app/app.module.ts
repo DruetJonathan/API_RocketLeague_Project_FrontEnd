@@ -14,6 +14,7 @@ import { SeeAllPlayersComponent } from './components/player/see-all-players/see-
 import {ButtonModule} from "primeng/button";
 import {MenubarModule} from "primeng/menubar";
 import {DropdownModule} from "primeng/dropdown";
+import {SpeedDialModule} from "primeng/speeddial";
 
 @NgModule({
     declarations: [
@@ -24,14 +25,15 @@ import {DropdownModule} from "primeng/dropdown";
         AddPlayerComponent,
         SeeAllPlayersComponent
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        SpeedDialModule,
 
-  ],
+    ],
     providers: [],
     exports: [
         HeaderComponent
