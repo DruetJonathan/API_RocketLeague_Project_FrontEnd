@@ -65,7 +65,7 @@ export class AddPlayerComponent implements OnInit{
       //     console.log(player)
       // }
       )
-      this._router.navigateByUrl("/")
+      this._router.navigateByUrl("/player/seeAllPlayers")
     }else{
       console.log("error")
       console.log(this.playerForm)

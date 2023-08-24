@@ -5,6 +5,7 @@
       <ng-container *ngFor="let player of players">
         <ng-container *ngIf="player.id !== 1">
           <div class="player-card" >
+            <p>{{player.pseudo}}</p>
               <img draggable="false" class="plateform" [src]="getImagePlateformByName(player.plateform)" alt="{{player.plateform.toString()}}">
               <div class="rank-container">
                 <div *ngFor="let rank of player.ranks;let i = index">
@@ -17,7 +18,7 @@
             <p>Team Name: {{ getTeamNameById(player.teamId)}}</p>
 <!--            async au dessus-->
             <a routerLink="">See details</a>
-            <p-button (click)="toogleDeletePopup(0)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button>          </div>
+            <p-button (click)="toogleDeletePopup(0,player.id)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button>          </div>
         </ng-container>
       </ng-container>
 
@@ -27,8 +28,8 @@
   <div [style.display]="divDeleteVisible ? 'flex' : 'none'"  class="blur">
     <div  id="divDelete">
       <p>Would you delete the player ?</p>
-      <a (click)="toogleDeletePopup(1)">Yes</a>
-      <a (click)="toogleDeletePopup(0)">No</a>
+      <a (click)="toogleDeletePopup(1,currentDeleteId)">Yes</a>
+      <a (click)="toogleDeletePopup(0,currentDeleteId)">No</a>
     </div>
   </div>
   <div class="blur" [style.display]="divConfirmationMessage ? 'flex' : 'none'">

@@ -22,7 +22,7 @@ export class SeeAllPlayersComponent implements OnInit {
   divDeleteVisible = false;
   divConfirmationMessage = false;
   isBlurred = false;
-
+  currentDeleteId= 0;
   constructor(private _playerServ: PlayerService, private _teamServ: TeamService) {
   }
 
@@ -61,10 +61,17 @@ export class SeeAllPlayersComponent implements OnInit {
     return this.teams.find(team => teamId === teamId)?.teamName;
   }
 
-  toogleDeletePopup(id:number) {
+  toogleDeletePopup(id:number,idPlayer:number) {
+    this.currentDeleteId = idPlayer;
     this.divDeleteVisible = !this.divDeleteVisible;
     if (id === 1){
-      this.divConfirmationMessage = !this.divConfirmationMessage;
+      this.toggleDeleteConfirmationMessage();
+      this._playerServ.delete(this.currentDeleteId).subscribe(
+        ()=>{
+          this.getAllPlayers();
+          this.getAllTeams();
+        }
+      );
     }
   }
   toggleDeleteConfirmationMessage(){

@@ -93,4 +93,9 @@ export class PlayerService {
         return '';
     }
   }
+
+  delete(currentDeleteId: number) {
+    console.log(currentDeleteId)
+    return this._client.delete<Player>(this.basicUrl + 'player/delete/'+currentDeleteId);
+  }
 }
