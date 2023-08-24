@@ -2,12 +2,12 @@
 <h1>Modify player</h1>
 
 <section>
-  <form [formGroup]="playerForm" (ngSubmit)="modifyPlayer()">
-    {{( currentPlayer$ | async | json)}}
+  {{( currentPlayer$ | async | json)}}
+  <form [formGroup]="playerForm" (ngSubmit)="modifyPlayer()" *ngIf="currentPlayer$ | async as player">
 
     <div>
       <label for="pseudo">Pseudo:</label>
-      <input type="text" [value]="( currentPlayer$ | async)?.pseudo " id="pseudo" formControlName="pseudo" placeholder="Pseudo" pTooltip="Enter your pseudo">
+      <input type="text" [value]="player.pseudo " id="pseudo" formControlName="pseudo" placeholder="Pseudo" pTooltip="Enter your pseudo">
       <div *ngIf="playerForm.get('pseudo')?.invalid && playerForm.get('pseudo')?.touched">
         <div *ngIf="playerForm.get('pseudo')?.errors?.['required']"  class="error">Le pseudo est requis.</div>
       </div>
@@ -20,7 +20,7 @@
           <span>{{rankGroup.name}}</span>
           <div [formGroupName]="i">
             <select formControlName="rank" pTooltip="Select a rank">
-              <option *ngFor="let rank of ranksEnum" [value]="( currentPlayer$ | async)?.pseudo">{{ rank }}</option>
+              <option *ngFor="let rank of ranksEnum" [value]="rank">{{ rank }}</option>
             </select>
             <select formControlName="division" pTooltip="Select a division">
               <option *ngFor="let division of divisions" [value]="division">{{ division }}</option>
@@ -54,33 +54,33 @@
     </div>
     <!--      todo: faire l'upload de l'image-->
     <label>Stats:</label>
-    <div id="stats" formGroupName="stats">
+    <div id="stats" formGroupName="stats" *ngIf="player.stats">
       <div>
         <label for="wins">Wins:</label>
-        <input type="number" formControlName="wins" id="wins" min="0" placeholder="0">
+        <input type="number" formControlName="wins" id="wins1" min="0" placeholder="0" [value]="player.stats.wins">
 
       </div>
       <div>
         <label for="goals">Goals:</label>
-        <input type="number" formControlName="goals" id="goals" min="0" placeholder="0">
+        <input type="number" formControlName="goals" id="goals" min="0" placeholder="0" [value]="player.stats.goals">
 
       </div>
       <div>
         <label for="assists">Assists:</label>
-        <input type="number" formControlName="assists" id="assists" min="0" placeholder="0">
+        <input type="number" formControlName="assists" id="assists" min="0" placeholder="0" [value]="player.stats.assists">
 
       </div>
       <div>
         <label for="mvps">Mvps:</label>
-        <input type="number" formControlName="mvps" id="mvps" min="0" placeholder="0">
+        <input type="number" formControlName="mvps" id="mvps" min="0" placeholder="0" [value]="player.stats.mvps">
       </div>
       <div>
         <label for="shots">Shots:</label>
-        <input type="number" formControlName="shots" id="shots" min="0" placeholder="0">
+        <input type="number" formControlName="shots" id="shots" min="0" placeholder="0" [value]="player.stats.shots">
       </div>
       <div>
         <label for="saves">Saves:</label>
-        <input type="number" formControlName="saves" id="saves" min="0" placeholder="0">
+        <input type="number" formControlName="saves" id="saves" min="0" placeholder="0" [value]="player.stats.saves">
       </div>
     </div>
     <div id="divErrorStats">

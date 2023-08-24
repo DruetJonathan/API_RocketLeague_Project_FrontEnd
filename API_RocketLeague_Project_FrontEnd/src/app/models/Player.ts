@@ -18,7 +18,7 @@ export interface PlayerAddForm {
   pseudo:String,
   ranks:Rank[],
   plateform:Plateforms,
-  stats: Stat,
+  stats: Stat[],
   teamId:number,
 }
 export interface PlayerSeeAll {

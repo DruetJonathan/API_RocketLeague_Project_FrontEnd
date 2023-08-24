@@ -9,6 +9,7 @@ import {TeamService} from "../../../services/team.service";
 import {TeamAddFormDTO} from "../../../models/Team";
 import {Ranks} from "../../../models/Ranks";
 import {PlayerAddForm} from "../../../models/Player";
+import {Stat} from "../../../models/Stat";
 import {BehaviorSubject, Observable} from "rxjs";
 
 @Component({
@@ -99,8 +100,15 @@ export class ModifyPlayerComponent implements OnInit {
     if (typeof this.idUrl === "string") {
       this._playerService.getPlayer(parseInt(this.idUrl, 10)).subscribe(
         (player) => {
-          this.currentPlayerSubject.next(player);
-            this.getAllTeam()
+          // this.currentPlayerSubject.next(player);
+          console.log('player', player)
+          this.playerForm.patchValue({
+            stats:{
+              wins: player.stats[0].wins
+            }
+          })
+          console.log(player.stats[0].wins)
+          this.getAllTeam()
         }
       )
     }
