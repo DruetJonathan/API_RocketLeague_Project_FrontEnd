@@ -17,7 +17,7 @@ import {DropdownModule} from "primeng/dropdown";
 import {SpeedDialModule} from "primeng/speeddial";
 import {ToastModule} from "primeng/toast";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
-import { ModifyPlayerComponent } from './components/modify-player/modify-player.component';
+import { ModifyPlayerComponent } from './components/player/modify-player/modify-player.component';
 
 @NgModule({
     declarations: [

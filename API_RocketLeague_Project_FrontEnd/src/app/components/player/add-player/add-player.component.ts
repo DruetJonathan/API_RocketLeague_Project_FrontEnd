@@ -6,7 +6,6 @@ import {Divisions} from "../../../models/Divisions";
 import {Rank} from "../../../models/Rank";
 import {Router} from "@angular/router";
 import {PlayerService} from "../../../services/player.service";
-import {Player} from "../../../models/Player";
 import {TeamService} from "../../../services/team.service";
 import {Team, TeamAddFormDTO} from "../../../models/Team";
 

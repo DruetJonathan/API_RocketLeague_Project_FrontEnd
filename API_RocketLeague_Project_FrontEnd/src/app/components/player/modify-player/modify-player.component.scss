@@ -1,0 +1,124 @@
+
+/* add-player.component.scss */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 49vw;
+  overflow: hidden; /* Prevent horizontal overflow */
+
+}
+#containerPlateTeam{
+  display: flex;
+  justify-content: space-evenly;
+  div{
+    width: 48%;
+  }
+}
+#rankContainer{
+  display: flex;
+  flex-direction: row;
+  div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 98%;
+    div{
+      display: flex;
+      flex-direction: column;
+      margin: 15px;
+    }
+  }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 97%; /* Adjusted width to prevent horizontal overflow */
+  padding: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+  width: 100%; /* Adjusted width to prevent horizontal overflow */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+#stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center; /* Vertically center elements */
+}
+
+#stats > div {
+  width: 30%; /* Adjusted width to fit three elements on a row */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center input elements */
+}
+
+#stats input {
+  width: 100%; /* Adjusted width to prevent horizontal overflow */
+  margin: 10px; /* Margin adjustments for better spacing */
+}
+
+select {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  //color: #ffc857;
+}
+
+button {
+  background-color: #367cd2;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 1.25rem;
+  margin: 15px 0; /* Margin adjustments for better spacing */
+}
+
+#divErrorStats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #5e92d3;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 15px 0; /* Margin adjustments for better spacing */
+}
+
