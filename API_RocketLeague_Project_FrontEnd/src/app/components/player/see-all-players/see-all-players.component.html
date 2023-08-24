@@ -18,7 +18,8 @@
             <p>Team Name: {{ getTeamNameById(player.teamId)}}</p>
 <!--            async au dessus-->
             <a routerLink="">See details</a>
-            <p-button (click)="toogleDeletePopup(0,player.id)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button>          </div>
+            <p-button (click)="toogleDeletePopup(0,player.id)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" id="deleteButton"></p-button>
+            <p-button routerLink="/player/modify/{{player.id}}" icon="pi pi-pencil" styleClass="p-button-rounded p-button-info p-button-text p-button-raised" id="modifyButton"></p-button>          </div>
         </ng-container>
       </ng-container>
 
@@ -37,6 +38,9 @@
       <p>The Player was deleted</p>
       <a (click)="toggleDeleteConfirmationMessage()">Close</a>
     </div>
+  </div>
+  <div>
+
   </div>
 </section>
 

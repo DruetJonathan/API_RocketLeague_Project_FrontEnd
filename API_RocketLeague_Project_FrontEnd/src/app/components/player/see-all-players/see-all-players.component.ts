@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../../services/player.service";
-import {Player, PlayerSeeAll} from "../../../models/Player";
+import {Player, PlayerAddForm, PlayerSeeAll} from "../../../models/Player";
 import {filter, map, Observable, tap} from "rxjs";
 import {Rank} from "../../../models/Rank";
 import {Ranks} from "../../../models/Ranks";
@@ -8,6 +8,9 @@ import {Plateforms} from "../../../models/Plateforms";
 import {TeamService} from "../../../services/team.service";
 import {Team, TeamAddFormDTO} from "../../../models/Team";
 import {ConfirmationService, ConfirmEventType, MessageService} from "primeng/api";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {Divisions} from "../../../models/Divisions";
 
 @Component({
   selector: 'app-see-all-players',
@@ -23,7 +26,15 @@ export class SeeAllPlayersComponent implements OnInit {
   divConfirmationMessage = false;
   isBlurred = false;
   currentDeleteId= 0;
-  constructor(private _playerServ: PlayerService, private _teamServ: TeamService) {
+  currentModifyId= 0;
+  //
+  ranksEnum: string[] = Object.keys(Ranks).filter(key => isNaN(Number(key)));
+  divisions: string[] = Object.keys(Divisions).filter(key => isNaN(Number(key)));
+  plateforms: string[] = Object.keys(Plateforms).filter(key => isNaN(Number(key)));
+  //
+  constructor(
+    private _router : Router,
+    private _playerServ: PlayerService, private _teamServ: TeamService) {
   }
 
   getAllPlayers() {
@@ -86,4 +97,5 @@ export class SeeAllPlayersComponent implements OnInit {
   toggleBlur() {
     this.isBlurred = !this.isBlurred;
   }
+
 }

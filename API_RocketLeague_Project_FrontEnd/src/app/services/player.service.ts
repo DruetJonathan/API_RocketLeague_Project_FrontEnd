@@ -98,4 +98,12 @@ export class PlayerService {
     console.log(currentDeleteId)
     return this._client.delete<Player>(this.basicUrl + 'player/delete/'+currentDeleteId);
   }
+  modify(player:PlayerAddForm,currentModifyId:number):Observable<Player>{
+    return this._client.post<Player>(this.basicUrl + 'player/modify/'+currentModifyId,player);
+  }
+
+  getPlayer(id: number) {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this._client.get<PlayerAddForm>(this.basicUrl + 'player/'+id, { headers });
+  }
 }
